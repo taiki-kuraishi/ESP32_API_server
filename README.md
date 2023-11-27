@@ -1,9 +1,3 @@
----
-title: ESP32をRESTfulなAPI Server化 in micropython
-tags: micropython ESP32 MicroWebSrv2
-author: taiki-kuraishi
-slide: false
----
 # はじめに
 ESP32に接続された温度センサー（LM61CIZ）から取得した温度データを返す、RESTful なAPI Serverを構築しました。
 
