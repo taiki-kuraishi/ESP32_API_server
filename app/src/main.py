@@ -4,10 +4,9 @@ from time import sleep
 from MicroWebSrv2 import *
 
 
-def connect_wifi(ssid, password, max_attempts=10):
+def connect_wifi(ssid, password, ip, subnet, gateway, dns):
     sta_if = network.WLAN(network.STA_IF)
-    sta_if.ifconfig(("192.168.123.11", "255.255.255.0", "192.168.123.1", "8.8.8.8"))
-
+    sta_if.ifconfig((ip, subnet, gateway, dns))
     if not sta_if.isconnected():
         print("connecting to wifi...")
         sta_if.active(True)
@@ -27,14 +26,18 @@ def read_temp():
     return temp
 
 
-ssid = "Buffalo-G-9BD0"
-password = "ppd7j7yi7jr4j"
+ssid = "your_wifi_ssid"
+password = "your_wifi_password"
+ip = ""
+subnet = ""
+gateway = ""
+dns = ""
 
 connect_wifi(ssid, password)
 
 mws2 = MicroWebSrv2()
 mws2.SetEmbeddedConfig()
-mws2.BindAddress = ("192.168.123.11", 80)
+mws2.BindAddress = (ip, 80)
 mws2.RequestsTimeoutSec = 10
 mws2.StartManaged()
 
