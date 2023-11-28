@@ -47,7 +47,7 @@ ESP32に接続された温度センサー（LM61CIZ）から取得した温度�
     from MicroWebSrv2 import *
     
     
-    def connect_wifi(ssid, password, max_attempts=10):
+    def connect_wifi(ssid, password):
         sta_if = network.WLAN(network.STA_IF)
         sta_if.ifconfig(("***.***.***.***", "255.255.255.0", "***.***.***.***", "8.8.8.8"))
     
@@ -119,8 +119,8 @@ ESP32に接続された温度センサー（LM61CIZ）から取得した温度�
 
 - ssid password
     ```python
-    ssid = "Buffalo-G-9BD0"
-    password = "ppd7j7yi7jr4j"
+    ssid = "********"
+    password = "********"
     ```
     - 使用するwifiのssidをpasswardを記述してください
     <br>
@@ -141,11 +141,10 @@ ESP32に接続された温度センサー（LM61CIZ）から取得した温度�
 
  # 動作
 
- <img src="/img/ESP32_API_Server_postman.png">
+ ![ESP32_API_Server_postman.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3622544/13fa12f8-bfd6-d0be-0ef0-ba4a9f6f97b6.png)
 
 
 
  # まとめ
  ESP32に接続された温度センサー（LM61CIZ）から取得した温度データを返す、RESTful なAPI Serverを構築しました。
 本当は、センサーを増やしたり、APIエンドポイントももっと増やしたいですが、ESP32の処理性能やメモリに制限があるため、断念しました。
- 
